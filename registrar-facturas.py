@@ -1,1 +1,1 @@
-print(" Registrar facturas")
+print("Registrar facturas")
