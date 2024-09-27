@@ -1,0 +1,50 @@
+<h3>Crear Orden de Compra</h3>
+
+<form method="POST" action="{% url 'crear_orden_compra' %}">
+  {% csrf_token %}
+  
+  <label for="proveedor">Proveedor:</label>
+  <select name="proveedor" required>
+    {% for proveedor in proveedores %}
+      <option value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+    {% endfor %}
+  </select>
+
+  <h4>Detalles de la Orden</h4>
+
+  <div id="productos">
+    <div class="producto">
+      <label>Producto:</label>
+      <input type="text" name="producto[]" required>
+      
+      <label>Cantidad:</label>
+      <input type="number" name="cantidad[]" min="1" required>
+      
+      <label>Precio Unitario:</label>
+      <input type="number" step="0.01" name="precio[]" required>
+    </div>
+  </div>
+
+  <button type="button" onclick="agregarProducto()">Agregar Producto</button>
+
+  <button type="submit">Guardar Orden de Compra</button>
+</form>
+
+<script>
+  function agregarProducto() {
+    var productosDiv = document.getElementById('productos');
+    var nuevoProducto = document.createElement('div');
+    nuevoProducto.className = 'producto';
+    nuevoProducto.innerHTML = `
+      <label>Producto:</label>
+      <input type="text" name="producto[]" required>
+      
+      <label>Cantidad:</label>
+      <input type="number" name="cantidad[]" min="1" required>
+      
+      <label>Precio Unitario:</label>
+      <input type="number" step="0.01" name="precio[]" required>
+    `;
+    productosDiv.appendChild(nuevoProducto);
+  }
+</script>

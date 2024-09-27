@@ -1,0 +1,5 @@
+Django==4.2.4             # Framework principal de tu aplicación
+psycopg2==2.9.6           # Si usas PostgreSQL como base de datos
+mysqlclient==2.1.1        # Si usas MySQL como base de datos (elige uno entre MySQL o PostgreSQL)
+Pillow==9.3.0             # Para manejo de imágenes (si trabajas con imágenes en la app)
+django-crispy-forms==2.0  # Para formularios más amigables y estilizados (si los usas)

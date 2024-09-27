@@ -1,0 +1,19 @@
+<h3>Negociar con {{ proveedor.nombre }}</h3>
+
+<form method="POST" action="{% url 'negociar_con_proveedor' proveedor.id %}">
+  {% csrf_token %}
+
+  <label for="descuento_acordado">Descuento acordado (%):</label>
+  <input type="number" name="descuento_acordado" step="0.01" required>
+  
+  <label for="plazo_pago_acordado">Plazo de pago acordado (días):</label>
+  <input type="number" name="plazo_pago_acordado" required>
+  
+  <label for="condiciones_especiales">Condiciones especiales:</label>
+  <textarea name="condiciones_especiales"></textarea>
+  
+  <label for="observaciones">Observaciones:</label>
+  <textarea name="observaciones"></textarea>
+
+  <button type="submit">Guardar Negociación</button>
+</form>

@@ -1,0 +1,15 @@
+<h3>Historial de Negociaciones - {{ proveedor.nombre }}</h3>
+
+<ul>
+  {% for negociacion in negociaciones %}
+    <li>
+      Fecha: {{ negociacion.fecha_negociacion }}<br>
+      Descuento acordado: {{ negociacion.descuento_acordado }}%<br>
+      Plazo de pago: {{ negociacion.plazo_pago_acordado }} días<br>
+      Condiciones especiales: {{ negociacion.condiciones_especiales }}<br>
+      Observaciones: {{ negociacion.observaciones }}
+    </li>
+  {% empty %}
+    <p>No hay negociaciones registradas.</p>
+  {% endfor %}
+</ul>
